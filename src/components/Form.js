@@ -5,6 +5,7 @@ const Form = () => {
 
 
     return (
+        <div className="form">
         <form>
             <label>
                 Name:
@@ -12,7 +13,8 @@ const Form = () => {
             </label>
             <input type="submit" value="Submit" />
         </form>
-
+        </div>
+        
     )
 }
 

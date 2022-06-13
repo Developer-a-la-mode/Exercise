@@ -1,12 +1,13 @@
 import React from 'react';
-import Form from './components/Form';
-import Card from './Card';
+import Main from './components/Main';
 
 function App() {
   return (
-    <card>
-      <Form />
-    </card>
+    <div>
+      <Main />
+    </div>
+
+
   );
 }
 
