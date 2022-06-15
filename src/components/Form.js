@@ -2,24 +2,29 @@ import { React, useState } from 'react';
 import './Form.css';
 
 const Form = () => {
-    const [userName,onSetUserName] = useState(' ')
-    const [userAge,onSetUserAge] = useState(' ')
+    const [userName,setUserName] = useState(' ')
+    const [userAge,setUserAge] = useState(' ')
 
     const onChangeUserHandler = (event) => {
-        const userName = event.target.value;
+        setUserName(event.target.value);
     }
 
     const onChangeAgeHandler = (event) => {
-        const userAge = event.target.value;
+        setUserAge(event.target.value);
     }
 
-    const submitHandler = () => {
-        console.log(userAge, userName);
+    const submitHandler = (event) => {
+        event.preventDefault();
+        const userData = {
+            username: userName,
+            age: userAge
+        };
+
     }
 
     return (
         <div className="form">
-        <form>
+        <form onSubmit={submitHandler}>
             <label className="form-label">
                 Username
             </label>
