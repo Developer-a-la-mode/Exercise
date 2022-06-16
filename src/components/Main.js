@@ -3,15 +3,18 @@ import Card from './Card';
 import Form from './Form';
 
 const Main = () => {
-
+    const userList = () => {
+        
+    }
+    
     return (
-        <Card>
+        <Card className="Card">
             <Form>
             
             </Form>
         </Card>
 
-        
+
     )
 };
 

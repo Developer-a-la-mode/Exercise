@@ -1,7 +1,7 @@
 import { React, useState } from 'react';
 import './Form.css';
 
-const Form = () => {
+const Form = (props) => {
     const [userName,setUserName] = useState(' ')
     const [userAge,setUserAge] = useState(' ')
 
@@ -19,7 +19,7 @@ const Form = () => {
             username: userName,
             age: userAge
         };
-
+        saveNewUser(userData);
     }
 
     return (

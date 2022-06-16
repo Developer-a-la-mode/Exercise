@@ -2,12 +2,21 @@ import React from 'react';
 import './AddUser.css'
 import Card from './Card';
 
-const AddUser = () => {
+const AddUser = (props) => {
+
+    const saveNewUser = (enteredUserData) => {
+        const userData = {
+            ...enteredUserData,
+            id: Math.random().toString()
+        }
+        console.log(userData);
+    }
     
     return (
         <div>
-            <Card>
-                hello
+            <Card className="Card" >
+                <div>Name</div>
+                <div>Age</div>
             </Card>
         </div>
     )
