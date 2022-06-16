@@ -3,14 +3,6 @@ import './AddUser.css'
 import Card from './Card';
 
 const AddUser = (props) => {
-
-    const saveNewUser = (enteredUserData) => {
-        const userData = {
-            ...enteredUserData,
-            id: Math.random().toString()
-        }
-        console.log(userData);
-    }
     
     return (
         <div>

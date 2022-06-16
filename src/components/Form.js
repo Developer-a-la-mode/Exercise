@@ -19,7 +19,7 @@ const Form = (props) => {
             username: userName,
             age: userAge
         };
-        saveNewUser(userData);
+        props.saveNewUser(userData);
     }
 
     return (
