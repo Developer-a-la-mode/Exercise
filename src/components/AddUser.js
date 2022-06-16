@@ -3,12 +3,12 @@ import './AddUser.css'
 import Card from './Card';
 
 const AddUser = (props) => {
-    
+    console.log(props.userDown)
     return (
         <div>
             <Card className="Card" >
-                <div>Name</div>
-                <div>Age</div>
+                <div>{props.userDown.username}</div>
+                <div>{props.userDown.age}</div>
             </Card>
         </div>
     )
