@@ -3,12 +3,12 @@ import './AddUser.css'
 import Card from './Card';
 
 const AddUser = (props) => {
-    const [userList, addUserList] = useState(' ');
+    const [userList, addUserList] = useState({props.userDown});
     addUserList(props.userDown);
     const usersList = [
         ...userList,
         userList
-    ]
+    ];
 
     console.log(props.userDown);
 
@@ -18,8 +18,8 @@ const AddUser = (props) => {
             {usersList.map(
                 user => 
                     <Card className="Card" >
-                        <div>{user.username}</div>
-                        <div>{user.age}</div>
+                        <div>{props.user.username}</div>
+                        <div>{props.user.age}</div>
                     </Card>
                 )
             }
