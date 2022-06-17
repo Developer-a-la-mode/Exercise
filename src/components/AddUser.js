@@ -1,15 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './AddUser.css'
 import Card from './Card';
 
 const AddUser = (props) => {
-    console.log(props.userDown)
+    const [userList, addUserList] = useState(' ');
+    addUserList(props.userDown);
+    const usersList = [
+        ...userList,
+        userList
+    ]
+
+    console.log(props.userDown);
+
     return (
         <div>
-            <Card className="Card" >
-                <div>{props.userDown.username}</div>
-                <div>{props.userDown.age}</div>
-            </Card>
+
+            {usersList.map(
+                user => 
+                    <Card className="Card" >
+                        <div>{user.username}</div>
+                        <div>{user.age}</div>
+                    </Card>
+                )
+            }
+
         </div>
     )
 }
