@@ -4,11 +4,11 @@ import Card from "./Card";
 import classes from './AddUser.module.css';
 
 const Form = (props) => {
-    const [userName, setUserName] = useState(' ')
+    const [enteredUserName, setEnteredUserName] = useState(' ')
     const [userAge, setUserAge] = useState(' ')
 
     const onChangeUserHandler = (event) => {
-        setUserName(event.target.value);
+        setEnteredUserName(event.target.value);
     }
 
     const onChangeAgeHandler = (event) => {
@@ -17,8 +17,9 @@ const Form = (props) => {
 
     const addUserHandler = (event) => {
         event.preventDefault();
+        console.log(enteredUserName, userAge)
         const userData = {
-            username: userName,
+            username: enteredUserName,
             age: userAge
         };
         props.saveNewUser(userData);
