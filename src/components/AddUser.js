@@ -1,31 +1,47 @@
-import React, { useState } from 'react';
-import classes from './AddUser.css';
-import Card from './Card';
+import { React, useState } from 'react';
+import Button from './Button';
+import Card from "./Card";
+import classes from './AddUser.module.css';
 
-const AddUser = (props) => {
-    const [userList, addUserList] = useState({props.userDown});
-    addUserList(props.userDown);
-    const usersList = [
-        ...userList,
-        userList
-    ];
+const Form = (props) => {
+    const [userName, setUserName] = useState(' ')
+    const [userAge, setUserAge] = useState(' ')
 
-    console.log(props.userDown);
+    const onChangeUserHandler = (event) => {
+        setUserName(event.target.value);
+    }
+
+    const onChangeAgeHandler = (event) => {
+        setUserAge(event.target.value);
+    }
+
+    const addUserHandler = (event) => {
+        event.preventDefault();
+        const userData = {
+            username: userName,
+            age: userAge
+        };
+        props.saveNewUser(userData);
+    }
 
     return (
-        <div>
+        <Card className={classes.input}>
+            <form onSubmit={addUserHandler} htmlFor="username">
+                <label className="form-label">
+                    Username
+                </label>
+                <input type="text" name="name" id="username" className="form-input--text" onChange={onChangeUserHandler} />
 
-            {usersList.map(
-                user => 
-                    <Card className={classes.input} >
-                        <div>{props.user.username}</div>
-                        <div>{props.user.age}</div>
-                    </Card>
-                )
-            }
+                <label className="form-label" htmlFor="age">
+                    Age
+                </label>
+                <input type="text" name="name" id="age" className="form-input--text" onChange={onChangeAgeHandler} />
 
-        </div>
+                <Button type="submit">Add User</Button>
+            </form>
+        </Card>
+
     )
 }
 
-export default AddUser;
+export default Form;
