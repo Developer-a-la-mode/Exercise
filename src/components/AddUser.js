@@ -17,6 +17,12 @@ const Form = (props) => {
 
     const addUserHandler = (event) => {
         event.preventDefault();
+        if (enteredUserName.trim().length === 0 || userAge.trim().length == 0) {
+            return;
+        }
+        if (+userAge < 1) {
+            return;
+        }
         console.log(enteredUserName, userAge)
         setEnteredUserName('');
         setUserAge('')
