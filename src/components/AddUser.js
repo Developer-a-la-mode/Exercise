@@ -17,20 +17,15 @@ const Form = (props) => {
 
     const addUserHandler = (event) => {
         event.preventDefault();
-        if (enteredUserName.trim().length === 0 || userAge.trim().length == 0) {
+        if (enteredUserName.trim().length === 0 || userAge.trim().length === 0) {
             return;
         }
         if (+userAge < 1) {
             return;
         }
-        console.log(enteredUserName, userAge)
+        props.onAddUser(enteredUserName, userAge);
         setEnteredUserName('');
         setUserAge('')
-        const userData = {
-            username: enteredUserName,
-            age: userAge
-        };
-        props.saveNewUser(userData);
     }
 
     return (
