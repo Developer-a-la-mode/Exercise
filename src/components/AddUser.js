@@ -3,6 +3,7 @@ import Button from './Button';
 import Card from "./Card";
 import classes from './AddUser.module.css';
 import ErrorModal from './ErrorModal';
+import Wrapper from './Wrapper';
 
 
 const Form = (props) => {
@@ -39,9 +40,13 @@ const Form = (props) => {
         setUserAge('')
     }
 
+    const errorHandler = () => {
+        setError(null);
+    }
+
     return (
-        <div>
-            {error && <ErrorModal title={error.title} message={error.message} />}
+        <Wrapper>
+            {error && <ErrorModal title={error.title} message={error.message} onConfirm={errorHandler} />}
             <Card className={classes.input}>
                 <form onSubmit={addUserHandler} htmlFor="username">
                     <label className="form-label">
@@ -57,7 +62,7 @@ const Form = (props) => {
                     <Button type="submit">Add User</Button>
                 </form>
             </Card>
-        </div>
+        </Wrapper>
     )
 }
 
