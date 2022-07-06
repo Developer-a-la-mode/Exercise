@@ -44,8 +44,8 @@ const Form = (props) => {
         <Wrapper>
             {error && <ErrorModal title={error.title} message={error.message} onConfirm={errorHandler} />}
             <Card className={classes.input}>
-                <form onSubmit={addUserHandler} htmlFor="username">
-                    <label className="form-label">
+                <form onSubmit={addUserHandler} >
+                    <label className="form-label" htmlFor="username">
                         Username
                     </label>
                     <input type="text" name="name" id="username" className="form-input--text" ref={nameInputRef} />
